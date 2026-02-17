@@ -1,0 +1,37 @@
+1. Ordem crescente (A-Z, 0-9)
+[SELECT] + <colunas> + [FROM] + <tabela>
+[ORDER BY] + <coluna>;
+
+1.1. Ex:
+SELECT * FROM cursos
+ORDER BY nome;
+------------------------------------------------
+2. Ordem decrescente (Z-A, 9-0)
+[SELECT] + <colunas> + [FROM] + <tabela>
+[ORDER BY] + <coluna> + [DESC];
+
+2.1. Explicação:
+[DESC] = descending (decrescente)
+
+2.2. Ex:
+SELECT * FROM cursos
+ORDER BY nome DESC;
+------------------------------------------------
+3. Ordenação por múltiplas colunas
+[SELECT] + <colunas> + [FROM] + <tabela>
+[ORDER BY] + <coluna1>, <coluna2>;
+
+3.1. Explicação:
+Primeiro ordena pela coluna1
+Depois ordena pela coluna2 (dentro da ordenação da coluna1)
+
+3.2. Ex:
+SELECT nome, ano, carga FROM cursos
+ORDER BY ano, nome;
+------------------------------------------------
+4. Combinando crescente e decrescente
+[ORDER BY] + <coluna1> + [ASC], + <coluna2> + [DESC];
+
+4.1. Ex:
+SELECT * FROM cursos
+ORDER BY ano ASC, nome DESC;
