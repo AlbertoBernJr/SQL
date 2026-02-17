@@ -1,0 +1,62 @@
+1. Operadores de comparação
+[SÍMBOLO]  |  [SIGNIFICADO]
+=          |  igual
+>          |  maior que
+<          |  menor que
+>=         |  maior ou igual
+<=         |  menor ou igual
+<> ou !=   |  diferente
+
+1.1. Ex:
+SELECT * FROM cursos
+WHERE carga > 40
+ORDER BY nome;
+------------------------------------------------
+2. BETWEEN (entre valores)
+[WHERE] + <coluna> + [BETWEEN] + <valor1> + [AND] + <valor2>
+
+2.1. Explicação:
+Inclui os valores das extremidades e os que estão entre eles
+
+2.2. Ex:
+SELECT nome, ano FROM cursos
+WHERE ano BETWEEN 2020 AND 2024
+ORDER BY ano;
+------------------------------------------------
+3. IN (valores específicos)
+[WHERE] + <coluna> + [IN] + [(<valor1>, <valor2>, <valor3>)]
+
+3.1. Explicação:
+Aceita somente os valores listados
+
+3.2. Ex:
+SELECT * FROM cursos
+WHERE ano IN (2020, 2022, 2024)
+ORDER BY nome;
+------------------------------------------------
+4. AND (E - todas condições verdadeiras)
+[WHERE] + <condição1> + [AND] + <condição2> + [AND] + <condição3>
+
+4.1. Ex:
+SELECT * FROM cursos
+WHERE carga > 30 AND totaulas < 40
+ORDER BY nome;
+------------------------------------------------
+5. OR (OU - pelo menos uma condição verdadeira)
+[WHERE] + <condição1> + [OR] + <condição2>
+
+5.1. Ex:
+SELECT * FROM cursos
+WHERE ano = 2020 OR ano = 2024
+ORDER BY nome;
+------------------------------------------------
+6. Combinando AND e OR (usar parênteses)
+[WHERE] + <condição1> + [AND] + (<condição2> + [OR] + <condição3>)
+
+6.1. Explicação:
+Parênteses definem a prioridade (assim como na matemática)
+
+6.2. Ex:
+SELECT * FROM cursos
+WHERE (ano = 2024 OR ano = 2023) AND carga > 40
+ORDER BY nome;
