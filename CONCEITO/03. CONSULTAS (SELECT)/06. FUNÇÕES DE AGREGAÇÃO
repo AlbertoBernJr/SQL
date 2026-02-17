@@ -1,0 +1,74 @@
+1. COUNT - Contar registros
+[SELECT COUNT(*)] + [FROM] + <tabela>
+[WHERE] + <condição> (opcional);
+
+1.1. Explicação:
+[COUNT(*)] = conta todas as linhas
+[COUNT(coluna)] = conta linhas onde coluna NÃO é NULL
+
+1.2. Ex:
+SELECT COUNT(*) FROM cursos;
+-- Total de cursos
+
+SELECT COUNT(*) FROM cursos
+WHERE carga > 40;
+-- Quantos cursos têm carga > 40
+------------------------------------------------
+2.1.  SUM - Somar valores
+[SELECT SUM(<coluna>)] + [FROM] + <tabela>
+[WHERE] + <condição> (opcional);
+
+2.2. Ex:
+SELECT SUM(carga) FROM cursos;
+-- Soma total das cargas
+
+SELECT SUM(totaulas) FROM cursos
+WHERE ano = 2024;
+-- Soma das aulas dos cursos de 2024
+------------------------------------------------
+3. AVG - Média dos valores
+[SELECT AVG(<coluna>)] + [FROM] + <tabela>
+[WHERE] + <condição> (opcional);
+
+3.1. Explicação:
+[AVG] = average (média)
+
+3.2. Ex:
+SELECT AVG(carga) FROM cursos;
+-- Média das cargas
+
+SELECT AVG(totaulas) FROM cursos
+WHERE ano > 2020;
+-- Média de aulas dos cursos após 2020
+------------------------------------------------
+4. MAX - Valor máximo
+[SELECT MAX(<coluna>)] + [FROM] + <tabela>
+[WHERE] + <condição> (opcional);
+
+4.1. Ex:
+SELECT MAX(carga) FROM cursos;
+-- Maior carga horária
+
+SELECT MAX(totaulas) FROM cursos
+WHERE ano = 2024;
+-- Curso com mais aulas em 2024
+------------------------------------------------
+5. MIN - Valor mínimo
+[SELECT MIN(<coluna>)] + [FROM] + <tabela>
+[WHERE] + <condição> (opcional);
+
+5.1. Ex:
+SELECT MIN(carga) FROM cursos;
+-- Menor carga horária
+------------------------------------------------
+6. Combinando funções
+[SELECT] + [COUNT(*)], [MAX(carga)], [AVG(totaulas)]
+[FROM] + <tabela>;
+
+6.1. Ex:
+SELECT 
+    COUNT(*) AS total_cursos,
+    MAX(carga) AS maior_carga,
+    MIN(carga) AS menor_carga,
+    AVG(totaulas) AS media_aulas
+FROM cursos;
