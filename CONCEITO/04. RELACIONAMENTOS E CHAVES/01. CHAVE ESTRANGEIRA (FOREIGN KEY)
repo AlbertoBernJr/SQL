@@ -1,0 +1,46 @@
+1. Criar tabela com chave estrangeira
+[CREATE TABLE] + <tabela_filha> + [(
+    <coluna> + <tipo>,
+    <coluna_chave_estrangeira> + <tipo>,
+    [FOREIGN KEY] + (<coluna_chave_estrangeira>)
+        [REFERENCES] + <tabela_pai>(<coluna_pai>)
+        [ON DELETE RESTRICT | CASCADE | SET NULL]
+        [ON UPDATE RESTRICT | CASCADE | SET NULL]
+)];
+
+1.1. Explicação
+[ON DELETE RESTRICT] = Impede excluir a chave pai se houver filhos
+[ON DELETE CASCADE] = Exclui filhos automaticamente
+[ON DELETE SET NULL] = Define chave estrangeira dos filhos como NULL
+[ON UPDATE RESTRICT] = Impede alterar a chave do pai se houver filhos
+[ON UPDATE CASCADE] = Atualiza filhos automaticamente
+[ON UPDATE SET NULL] = Define chave estrangeira dos filhos como NULL
+[RESTRICT] = é o padrão
+
+1.2. Ex:
+CREATE TABLE gafanhotos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(30) NOT NULL,
+    cursopreferido INT,
+    FOREIGN KEY (cursopreferido) 
+        REFERENCES cursos(idcurso)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+);
+------------------------------------------------
+2. Adicionar chave estrangeira em tabela existente
+[ALTER TABLE] + <tabela_filha>
+[ADD FOREIGN KEY] + (<coluna_chave_estrangeira>)
+[REFERENCES] + <tabela_pai>(<coluna_pai>);
+
+2.1. Ex:
+ALTER TABLE gafanhotos
+ADD FOREIGN KEY (cursopreferido) 
+REFERENCES cursos(idcurso);
+------------------------------------------------
+3. Remover chave estrangeira
+[ALTER TABLE] + <tabela> + [DROP FOREIGN KEY] + <nome_restrição>;
+
+3.1. Ex:
+ALTER TABLE gafanhotos DROP FOREIGN KEY gafanhotos_ibfk_1;
+-- Nome da FK você descobre com SHOW CREATE TABLE
