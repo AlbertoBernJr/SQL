@@ -1,0 +1,19 @@
+1. Opções ON DELETE e ON UPDATE
+[OPÇÃO]       |       [SIGNIFICADO]
+RESTRICT      |      impede exclusão/alteração se houver referências
+CASCADE       |      exclui/altera em cascata (propaga a mudança)
+SET NULL      |      define a FK como NULL se referência for excluída/alterada
+NO ACTION     |      igual RESTRICT (padrão em alguns bancos)
+
+1.1.Exemplos:
+-- Não deixa apagar curso se tiver alunos matriculados
+FOREIGN KEY (cursopreferido) REFERENCES cursos(idcurso)
+ON DELETE RESTRICT
+
+-- Se curso for apagado, alunos ficam com cursopreferido = NULL
+FOREIGN KEY (cursopreferido) REFERENCES cursos(idcurso)
+ON DELETE SET NULL
+
+-- Se id do curso mudar, atualiza automaticamente nos alunos
+FOREIGN KEY (cursopreferido) REFERENCES cursos(idcurso)
+ON UPDATE CASCADE
