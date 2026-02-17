@@ -1,0 +1,15 @@
+1. Estrutura básica
+text
+[SELECT] + <tabela1.coluna>, <tabela2.coluna>
+[FROM] + <tabela1>
+[RIGHT JOIN] + <tabela2> + [ON] + <condição>;
+
+1.1. Explicação:
+Mostra TODOS os registros da tabela direita (tabela2)
+Mostra correspondência da tabela esquerda (tabela1) quando existe
+
+1.2. Ex:
+SELECT g.nome, c.nome
+FROM gafanhotos g
+RIGHT JOIN cursos c ON g.cursopreferido = c.idcurso;
+-- Mostra TODOS os cursos, mesmo sem gafanhotos preferindo
