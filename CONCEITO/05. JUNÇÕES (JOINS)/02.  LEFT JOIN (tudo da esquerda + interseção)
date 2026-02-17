@@ -1,0 +1,25 @@
+1. Estrutura básica
+[SELECT] + <tabela1.coluna>, <tabela2.coluna>
+[FROM] + <tabela1>
+[LEFT JOIN] + <tabela2> + [ON] + <condição>;
+
+1.1. Explicação:
+Mostra TODOS os registros da tabela esquerda (tabela1)
+Mostra correspondência da tabela direita (tabela2) quando existe
+Quando não existe, mostra NULL
+
+1.2. Ex:
+SELECT g.nome, c.nome
+FROM gafanhotos g
+LEFT JOIN cursos c ON g.cursopreferido = c.idcurso;
+-- Mostra TODOS os gafanhotos, mesmo sem curso preferido
+------------------------------------------------
+2. LEFT JOIN para encontrar registros sem correspondência
+[WHERE] + <tabela2.chave> + [IS NULL]
+
+2.1. Ex:
+SELECT g.nome
+FROM gafanhotos g
+LEFT JOIN cursos c ON g.cursopreferido = c.idcurso
+WHERE c.idcurso IS NULL;
+-- Mostra gafanhotos que NÃO têm curso preferido
