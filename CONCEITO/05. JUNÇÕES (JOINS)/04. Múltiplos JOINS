@@ -1,0 +1,14 @@
+1. Juntar mais de 2 tabelas
+[SELECT] + <colunas>
+[FROM] + <tabela1>
+[JOIN] + <tabela2> + [ON] + <condição1>
+[JOIN] + <tabela3> + [ON] + <condição2>;
+
+1.1. Ex:
+SELECT 
+    g.nome AS aluno,
+    c.nome AS curso,
+    p.nome AS professor
+FROM gafanhotos g
+INNER JOIN cursos c ON g.cursopreferido = c.idcurso
+INNER JOIN professores p ON c.professor_id = p.id;
