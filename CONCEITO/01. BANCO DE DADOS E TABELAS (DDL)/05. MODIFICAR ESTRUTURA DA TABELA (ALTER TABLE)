@@ -1,0 +1,44 @@
+1. Adicionar nova coluna
+[ALTER TABLE] + <tabela>
+[ADD COLUMN] + <nome_coluna> + <tipo>
+[FIRST | AFTER coluna]
+
+1.1. Explicação:
+[FIRST] = adiciona como primeira coluna
+[AFTER coluna] = adiciona depois de determinada coluna
+
+1.2. Ex:
+ALTER TABLE cursos
+ADD COLUMN professor VARCHAR(30) AFTER nome;
+------------------------------------------------
+2. Modificar tipo ou restrições de uma coluna
+[ALTER TABLE] + <tabela>
+[MODIFY COLUMN] + <nome_coluna> + <novo_tipo> + <novas_restrições>
+
+2.1. Ex:
+ALTER TABLE cursos
+MODIFY COLUMN ano YEAR;
+------------------------------------------------
+3. Renomear coluna
+[ALTER TABLE] + <tabela>
+[CHANGE COLUMN] + <nome_antigo> + <nome_novo> + <tipo>
+
+3.1. Ex:
+ALTER TABLE cursos
+CHANGE COLUMN totaulas aulas INT;
+------------------------------------------------
+4. Excluir coluna
+[ALTER TABLE] + <tabela>
+[DROP COLUMN] + <nome_coluna>
+
+4.1. Ex:
+ALTER TABLE cursos
+DROP COLUMN descricao;
+------------------------------------------------
+5. Renomear tabela
+[ALTER TABLE] + <nome_antigo> + [RENAME TO] + <nome_novo>
+ou
+[RENAME TABLE] + <nome_antigo> + [TO] + <nome_novo>
+
+5.1. Ex:
+RENAME TABLE cursos TO cursos_online;
