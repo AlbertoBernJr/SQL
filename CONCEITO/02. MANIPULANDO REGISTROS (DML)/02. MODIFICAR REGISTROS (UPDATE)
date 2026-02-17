@@ -1,0 +1,49 @@
+1. Modificando 1 coluna em 1 linha
+[UPDATE] + <tabela>
+[SET] + <coluna> + [=] + <novo valor>
+[WHERE] + <coluna chave primária> + [=] + <valor da linha>;
+
+1.1. Explicação:
+[UPDATE] = atualize
+[SET] = configure
+[WHERE] = onde (condição)
+
+1.2. Ex:
+UPDATE cursos
+SET nome = 'HTML5 Completo'
+WHERE idcurso = 1;
+------------------------------------------------
+2. Modificando várias colunas em 1 linha
+[UPDATE] + <tabela>
+[SET] + <coluna1> + [=] + <valor1> + [,] + <coluna2> + [=] + <valor2>
+[WHERE] + <coluna chave primária> + [=] + <valor>
+[LIMIT] + <número>;
+
+2.1. Explicação:
+[LIMIT] = limita o número de linhas afetadas (segurança)
+
+2.2. Ex:
+UPDATE cursos
+SET nome = 'PHP 8', ano = '2024', carga = '80'
+WHERE idcurso = 4
+LIMIT 1;
+------------------------------------------------
+3. Modificando várias linhas de uma vez
+[UPDATE] + <tabela>
+[SET] + <coluna> + [=] + <novo valor>
+[WHERE] + <condição>
+[LIMIT] + <número máximo>;
+
+3.1. Ex:
+UPDATE cursos
+SET carga = '50'
+WHERE ano = '2023'
+LIMIT 10;
+------------------------------------------------
+4. Cuidado! Update sem WHERE (afeta TODAS as linhas)
+[UPDATE] + <tabela> + [SET] + <coluna> + [=] + <valor>;
+-- SEM WHERE = todas as linhas serão alteradas!
+
+4.1. Ex:
+UPDATE cursos SET ano = '2024';
+-- Todas as linhas terão ano = 2024
