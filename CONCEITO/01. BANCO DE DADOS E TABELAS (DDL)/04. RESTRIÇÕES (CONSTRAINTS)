@@ -1,0 +1,15 @@
+[RESTRIÇÃO]      |   [SIGNIFICADO]
+NOT NULL         |   campo não pode ficar vazio
+UNIQUE           |   valores não podem se repetir
+PRIMARY KEY      |   chave primária (NOT NULL + UNIQUE)
+FOREIGN KEY      |   chave estrangeira (liga a outra tabela)
+DEFAULT valor    |   valor padrão se não for informado
+AUTO_INCREMENT   |   incrementa automaticamente (só em PRIMARY KEY)
+CHECK (condição) |   verifica condição antes de inserir
+
+Ex:
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(50) NOT NULL,
+email VARCHAR(100) UNIQUE,
+status INT DEFAULT 1,
+idade INT CHECK (idade >= 18)
