@@ -1,0 +1,30 @@
+1. Inserir 1 linha completa (todas as colunas)
+[INSERT INTO] + <tabela> + [VALUES] + [(<valores na ordem das colunas>)];
+
+1.1. Ex:
+INSERT INTO cursos 
+VALUES (1, 'HTML5', 'Curso de HTML', '40', '20', '2024');
+------------------------------------------------
+2. Inserir especificando as colunas
+[INSERT INTO] + <tabela> + [(<colunas>)] + [VALUES] + [(<valores correspondentes>)];
+
+2.1. Ex:
+INSERT INTO cursos (idcurso, nome, ano) 
+VALUES (2, 'CSS3', '2024');
+------------------------------------------------
+3. Inserir várias linhas de uma vez
+[INSERT INTO] + <tabela> + [VALUES] + 
+(<linha1>), (<linha2>), (<linha3>);
+
+3.1. Ex:
+INSERT INTO cursos VALUES
+(3, 'JavaScript', 'JS moderno', '50', '30', '2023'),
+(4, 'PHP', 'PHP para iniciantes', '60', '40', '2023'),
+(5, 'MySQL', 'Banco de dados', '30', '20', '2024');
+------------------------------------------------
+4. Inserir com AUTO_INCREMENT (deixar o id automático)
+[INSERT INTO] + <tabela> + [(<colunas_exceto_id>)] + [VALUES] + [(<valores>)];
+
+4.1. Ex:
+INSERT INTO cursos (nome, descricao, carga, totaulas, ano) 
+VALUES ('Python', 'Curso de Python', '40', '20', '2024');
