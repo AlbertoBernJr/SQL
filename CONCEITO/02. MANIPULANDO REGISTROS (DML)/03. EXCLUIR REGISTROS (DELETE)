@@ -1,0 +1,31 @@
+1. Excluir 1 linha específica
+[DELETE FROM] + <tabela>
+[WHERE] + <coluna chave primária> + [=] + <valor>
+[LIMIT] + <número> (opcional);
+
+1.1. Ex:
+DELETE FROM cursos
+WHERE idcurso = 8
+LIMIT 1;
+------------------------------------------------
+2. Excluir várias linhas com condição
+[DELETE FROM] + <tabela>
+[WHERE] + <condição>
+[LIMIT] + <número máximo>;
+
+2.1. Ex:
+DELETE FROM cursos
+WHERE ano = '2016'
+LIMIT 5;
+------------------------------------------------
+3. Cuidado! Delete sem WHERE (apaga TUDO)
+[DELETE FROM] + <tabela>;
+-- SEM WHERE = todas as linhas serão apagadas!
+
+3.1. Ex:
+DELETE FROM cursos;
+-- Apaga todos os registros, mas mantém a estrutura
+
+3.2. Diferença entre DELETE sem WHERE e TRUNCATE
+[DELETE FROM] + <tabela>;    --> apaga linhas, mas mantém AUTO_INCREMENT
+[TRUNCATE TABLE] + <tabela>; --> apaga e reinicia AUTO_INCREMENT
