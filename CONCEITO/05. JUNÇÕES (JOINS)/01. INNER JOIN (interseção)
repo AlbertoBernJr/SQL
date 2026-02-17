@@ -1,0 +1,33 @@
+1. Estrutura básica
+[SELECT] + <tabela1.coluna>, <tabela2.coluna>
+[FROM] + <tabela1>
+[INNER JOIN] + <tabela2> + [ON] + <tabela1.chave> + [=] + <tabela2.chave>;
+
+1.1. Explicação:
+[INNER JOIN] = junção interna
+Só mostra registros que existem nas DUAS tabelas
+
+[ON] = condição de ligação
+
+1.2. Ex:
+SELECT gafanhotos.nome, cursos.nome
+FROM gafanhotos
+INNER JOIN cursos ON gafanhotos.cursopreferido = cursos.idcurso;
+------------------------------------------------
+2. Usando apelidos (ALIAS) para simplificar
+[SELECT] + <alias1.coluna>, <alias2.coluna>
+[FROM] + <tabela1> + <alias1>
+[INNER JOIN] + <tabela2> + <alias2> + [ON] + <alias1.chave> + [=] + <alias2.chave>;
+
+2.1. Ex:
+SELECT g.nome, c.nome
+FROM gafanhotos g
+INNER JOIN cursos c ON g.cursopreferido = c.idcurso;
+------------------------------------------------
+3. INNER JOIN com mais condições
+[INNER JOIN] + <tabela2> + [ON] + <condição1> + [AND] + <condição2>
+
+3.1. Ex:
+SELECT g.nome, c.nome, c.ano
+FROM gafanhotos g
+INNER JOIN cursos c ON g.cursopreferido = c.idcurso AND c.ano > 2020;
