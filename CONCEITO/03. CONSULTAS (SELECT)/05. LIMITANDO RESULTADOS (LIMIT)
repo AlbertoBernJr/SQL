@@ -1,0 +1,31 @@
+1. Limitar número de linhas retornadas
+[SELECT] + <colunas> + [FROM] + <tabela>
+[LIMIT] + <quantidade>;
+
+1.1. Ex:
+SELECT * FROM cursos
+LIMIT 5;
+-- Mostra apenas as 5 primeiras linhas
+------------------------------------------------
+2. Limitar com deslocamento (paginação)
+[SELECT] + <colunas> + [FROM] + <tabela>
+[LIMIT] + <quantidade_pular>, <quantidade_mostrar>;
+
+2.1. Explicação:
+Primeiro número = quantos registros pular
+Segundo número = quantos mostrar
+
+2.2. Ex:
+SELECT * FROM cursos
+ORDER BY nome
+LIMIT 3, 5;
+-- Pula 3, mostra 5 registros
+-- Útil para paginação: página 1 = LIMIT 0,5; página 2 = LIMIT 5,5
+------------------------------------------------
+3. Formato alternativo (OFFSET)
+[LIMIT] + <quantidade_mostrar> + [OFFSET] + <quantidade_pular>
+
+3.1. Ex:
+SELECT * FROM cursos
+LIMIT 5 OFFSET 3;
+-- Mesmo que LIMIT 3,5
