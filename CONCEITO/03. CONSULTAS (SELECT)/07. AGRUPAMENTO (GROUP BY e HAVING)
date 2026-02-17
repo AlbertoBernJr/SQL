@@ -1,0 +1,51 @@
+1. GROUP BY básico
+[SELECT] + <coluna_agrupamento>, [função_agregação]
+[FROM] + <tabela>
+[GROUP BY] + <coluna_agrupamento>;
+
+1.1. Explicação:
+Agrupa registros que têm o mesmo valor na coluna
+Geralmente usado com funções de agregação
+
+1.2. Ex:
+SELECT ano, COUNT(*) FROM cursos
+GROUP BY ano;
+-- Conta quantos cursos existem para cada ano
+------------------------------------------------
+2. GROUP BY com múltiplas colunas
+[GROUP BY] + <coluna1>, <coluna2>;
+
+2.1. Ex:
+SELECT ano, carga, COUNT(*)
+FROM cursos
+GROUP BY ano, carga;
+-- Agrupa por ano E carga ao mesmo tempo
+------------------------------------------------
+3. HAVING - Filtrar grupos (como WHERE para GROUP BY)
+[SELECT] + <coluna_agrupamento>, [função_agregação]
+[FROM] + <tabela>
+[GROUP BY] + <coluna_agrupamento>
+[HAVING] + <condição sobre o agrupamento>;
+
+3.1. Explicação:
+[HAVING] = filtra os grupos criados pelo GROUP BY
+Diferente do WHERE (que filtra linhas antes do agrupamento)
+
+3.2. Ex:
+SELECT ano, COUNT(*) as total
+FROM cursos
+GROUP BY ano
+HAVING total >= 2;
+-- Mostra apenas anos que têm 2 ou mais cursos
+------------------------------------------------
+4. Diferença WHERE x HAVING
+WHERE  → filtra LINHAS (antes do GROUP BY)
+HAVING → filtra GRUPOS (depois do GROUP BY)
+
+4.1. Exemplo prático:
+SELECT ano, COUNT(*) as total
+FROM cursos
+WHERE carga > 30   -- 1º: filtra cursos com carga > 30
+GROUP BY ano       -- 2º: agrupa por ano
+HAVING total >= 2  -- 3º: mostra só anos com 2+ cursos
+ORDER BY total DESC;
