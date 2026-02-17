@@ -1,0 +1,38 @@
+1. Tipos Numéricos:
+[TIPO]      |        [FAIXA]             |       [USO]
+INT         |      -2bi até 2bi          |       números inteiros
+TINYINT     |      0 a 255 ou -128 a 127 |       números pequenos
+BIGINT      |      muito grande          |       números muito grandes
+DECIMAL(5,2)|      até 999.99            |       valores monetários
+FLOAT       |      aproximado            |       números com casas decimais
+BOOLEAN     |      0 ou 1                |       verdadeiro/falso
+Ex:
+
+1.1. Ex:
+idade INT,
+salario DECIMAL(8,2),  -- 8 dígitos, 2 decimais (ex: 123456.78)
+ativo BOOLEAN
+------------------------------------------------
+2. Tipos de Texto/String:
+[TIPO]        |      [DESCRIÇÃO]
+VARCHAR(n)    |     texto de tamanho variável (até n caracteres)
+CHAR(n)       |     texto de tamanho fixo (sempre n caracteres)
+TEXT          |     texto longo (até 65.535 caracteres)
+ENUM('a','b') |     lista de valores pré-definidos (escolhe 1)
+
+2.1. Ex:
+nome VARCHAR(100),
+sexo ENUM('M', 'F'),
+cpf CHAR(11)  -- sempre 11 caracteres
+------------------------------------------------
+3. Tipos de Data/Hora:
+[TIPO]       |       [FORMATO]            |     [USO]
+DATE         |      YYYY-MM-DD            |     apenas data
+DATETIME     |      YYYY-MM-DD HH:MM:SS   |     data e hora
+TIMESTAMP    |      YYYY-MM-DD HH:MM:SS   |     data e hora (até 2038)
+TIME         |      HH:MM:SS              |     apenas hora
+YEAR         |      YYYY                  |     apenas ano
+
+3.1. Ex:
+data_nascimento DATE,
+created_at DATETIME DEFAULT CURRENT_TIMESTAMP
