@@ -1,0 +1,14 @@
+1. Excluir tabela (com estrutura e dados)
+[DROP TABLE] + <nome_tabela>;
+
+1.1. Ex:
+DROP TABLE cursos;
+------------------------------------------------
+2. Excluir apenas os dados (resetar tabela)
+[TRUNCATE TABLE] + <nome_tabela>;
+
+2.1. Explicação:
+[TRUNCATE] = apaga todas as linhas e reinicia AUTO_INCREMENT
+
+2.2. Ex:
+TRUNCATE TABLE cursos;
