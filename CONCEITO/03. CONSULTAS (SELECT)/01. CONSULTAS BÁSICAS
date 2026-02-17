@@ -1,0 +1,35 @@
+1. Selecionar todas as colunas
+[SELECT * FROM] + <tabela>;
+
+1.1. Explicação:
+[SELECT] = selecione
+[*] = todas as colunas
+[FROM] = de (origem)
+
+1.2. Ex:
+SELECT * FROM cursos;
+------------------------------------------------
+2. Selecionar colunas específicas
+[SELECT] + <coluna1>, <coluna2> + [FROM] + <tabela>;
+
+2.1. Ex:
+SELECT nome, carga, ano FROM cursos;
+------------------------------------------------
+3. Selecionar valores únicos (sem repetição)
+[SELECT DISTINCT] + <coluna> + [FROM] + <tabela>;
+
+3.1. Explicação:
+[DISTINCT] = mostra apenas valores distintos (sem repetir)
+
+3.2. Ex:
+SELECT DISTINCT ano FROM cursos;
+-- Mostra apenas os anos, sem repetir
+------------------------------------------------
+4. Renomear colunas na exibição (ALIAS)
+[SELECT] + <coluna> + [AS] + <apelido> + [FROM] + <tabela>;
+
+4.1. Explicação:
+[AS] = como (apelido para exibição)
+
+4.2. Ex:
+SELECT nome AS curso, carga AS carga_horaria FROM cursos;
