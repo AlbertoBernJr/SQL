@@ -1,0 +1,29 @@
+1. Criar novo banco de dados:
+[CREATE DATABASE] + <nome_do_banco>
+[CHARACTER SET] + <codificação> (opcional)
+[COLLATE] + <comparação> (opcional)
+
+1.1. Explicação:
+[CREATE DATABASE] = criar banco de dados
+[CHARACTER SET] = conjunto de caracteres (ex: utf8mb4)
+[COLLATE] = regras de comparação/ordenação
+
+1.2. Ex:
+CREATE DATABASE cadastro
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_general_ci;
+----------------------------------------
+2. Ver bancos de dados existentes:
+[SHOW DATABASES];
+----------------------------------------
+3. Selecionar banco de dados para usar:
+[USE] + <nome_do_banco>;
+
+3.1. Ex:
+USE cadastro;
+----------------------------------------
+4. Excluir banco de dados
+[DROP DATABASE] + <nome_do_banco>;
+
+4.1. Ex:
+DROP DATABASE cadastro;
