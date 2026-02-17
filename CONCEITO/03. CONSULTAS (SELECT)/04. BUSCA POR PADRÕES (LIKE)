@@ -1,0 +1,44 @@
+1. Coringas do LIKE
+[SÍMBOLO]  |  [SIGNIFICADO]
+%          |  qualquer coisa (zero ou mais caracteres)
+[ _ ]      |  um caractere qualquer (obrigatório)
+------------------------------------------------
+2. Começa com determinado texto
+[WHERE] + <coluna> + [LIKE] + ['<texto>%']
+
+2.1. Ex:
+SELECT * FROM cursos
+WHERE nome LIKE 'PHP%';
+-- PHP, PHP Básico, PHP Avançado
+------------------------------------------------
+3. Termina com determinado texto
+[WHERE] + <coluna> + [LIKE] + ['%<texto>']
+
+3.1. Ex:
+SELECT * FROM cursos
+WHERE nome LIKE '%SQL';
+-- MySQL, SQL, PostgreSQL
+------------------------------------------------
+4. Contém texto em qualquer posição
+[WHERE] + <coluna> + [LIKE] + ['%<texto>%']
+
+4.1. Ex:
+SELECT * FROM cursos
+WHERE nome LIKE '%HTML%';
+-- HTML5, Curso de HTML, HTML Básico
+------------------------------------------------
+5. Padrão com caractere coringa (_)
+[WHERE] + <coluna> + [LIKE] + ['<texto>_<texto>']
+
+5.1. Ex:
+SELECT * FROM cursos
+WHERE nome LIKE 'PH_P';
+-- PHP, PHOP, PH8P (qualquer caractere no _)
+------------------------------------------------
+6. Busca por valores que NÃO correspondem ao padrão
+[WHERE] + <coluna> + [NOT LIKE] + ['<padrão>']
+
+6.1. Ex:
+SELECT * FROM cursos
+WHERE nome NOT LIKE '%A';
+-- Todos que NÃO terminam com A
