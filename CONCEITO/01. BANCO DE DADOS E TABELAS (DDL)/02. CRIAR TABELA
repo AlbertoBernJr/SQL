@@ -1,0 +1,28 @@
+1. Estrutura básica:
+[CREATE TABLE] + <nome_tabela> + [(]
+    <coluna1> + <tipo> + <restrições>,
+    <coluna2> + <tipo> + <restrições>,
+    ...
+    [PRIMARY KEY] + (<coluna_principal>)
+[)]
+[ENGINE = InnoDB]
+[DEFAULT CHARSET = utf8mb4];
+
+1.1.Ex:
+CREATE TABLE cursos (
+    idcurso INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(30) NOT NULL UNIQUE,
+    descricao TEXT,
+    carga INT UNSIGNED,
+    totaulas INT,
+    ano YEAR DEFAULT '2024',
+    PRIMARY KEY (idcurso)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+------------------------------------------------
+2. Ver tabelas existentes
+[SHOW TABLES];
+------------------------------------------------
+3. Ver estrutura de uma tabela
+[DESCRIBE] + <nome_tabela>;
+ou
+[DESC] + <nome_tabela>;
